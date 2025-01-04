@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'leads',
     'rest_framework',
-    'phone_field'
+    'phone_field',
+    'contacts'
 ]
 
 MIDDLEWARE = [
