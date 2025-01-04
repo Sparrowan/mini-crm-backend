@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'leads',
     'rest_framework',
     'phone_field',
-    'contacts'
+    'contacts',
+    'notes'
 ]
 
 MIDDLEWARE = [

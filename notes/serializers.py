@@ -1,20 +1,17 @@
 from rest_framework import serializers
 
-from .models import Contact
+from .models import Note
 
 
-class ContactSerializer(serializers.ModelSerializer):
+class NoteSerializer(serializers.ModelSerializer):
     lead = serializers.SerializerMethodField()
     class Meta:
-        model = Contact
+        model = Note
         fields = (
             'id',
             'lead',
-            'first_name',
-            'middle_name',
-            'last_name',
-            'phone_number',
-            'email',
+            'title',
+            'content',
             'created_at',
         )
             
