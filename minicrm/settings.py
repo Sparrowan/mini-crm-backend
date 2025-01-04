@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'phone_field',
     'contacts',
     'notes',
-    'reminders'
+    'reminders',
+    'celery',
+    'django_celery_beat'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# set the celery broker url
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+# set the celery result backend
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+# set the celery timezone
+CELERY_TIMEZONE = 'UTC'
+
+from celery.schedules import crontab
+
+
+CELERY_BEAT_SCHEDULE = {
+    "sample_task": {
+        "task": "reminders.tasks.process_pending_reminders",
+        "schedule": crontab(minute="*/1"),
+    },
+}
