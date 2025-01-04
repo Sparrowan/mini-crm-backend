@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'phone_field',
     'contacts',
-    'notes'
+    'notes',
+    'reminders'
 ]
 
 MIDDLEWARE = [

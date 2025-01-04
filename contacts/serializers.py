@@ -18,6 +18,5 @@ class ContactSerializer(serializers.ModelSerializer):
             'created_at',
         )
             
-    def get_lead(self, obj):
-        
+    def get_lead(self, obj):       
         return obj.get_lead_display()

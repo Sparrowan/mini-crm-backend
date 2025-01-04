@@ -22,4 +22,5 @@ urlpatterns = [
     path('leads/', include('leads.urls', namespace='leads')),
     path('contacts/', include('contacts.urls', namespace='contacts')),
     path('notes/', include('notes.urls', namespace='notes')),
+    path('reminders/', include('reminders.urls', namespace='reminders')),
 ]

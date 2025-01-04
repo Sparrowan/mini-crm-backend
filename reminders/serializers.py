@@ -1,19 +1,21 @@
 from rest_framework import serializers
 
-from .models import Note
+from .models import Reminder
 
 
-class NoteSerializer(serializers.ModelSerializer):
+class ReminderSerializer(serializers.ModelSerializer):
     lead = serializers.SerializerMethodField()
     class Meta:
-        model = Note
+        model = Reminder
         fields = (
             'id',
             'lead',
             'title',
-            'content',
+            'message',
+            'status',
+            'schedule_at',
             'created_at',
         )
             
-    def get_lead(self, obj):       
+    def get_lead(self, obj):
         return obj.get_lead_display()
