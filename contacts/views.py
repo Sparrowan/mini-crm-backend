@@ -31,7 +31,15 @@ class ContactCreateView(CreateAPIView):
 class ContactListView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ContactSerializer
-    queryset = Contact.objects.all()
+
+    def get_queryset(self):
+        lead_id = self.request.query_params.get('lead_id', None)
+
+        if lead_id:
+            return Contact.objects.filter(lead_id=lead_id)
+        
+        return Contact.objects.all()
+
 
 
 class ContactRetrieveView(RetrieveAPIView):
