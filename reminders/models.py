@@ -11,7 +11,6 @@ class Reminder(models.Model):
     title = models.CharField(max_length=100,)
     message = models.TextField()
     status = models.CharField(choices=STATUS_CHOICES, max_length=20,default='pending')
-    schedule_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:

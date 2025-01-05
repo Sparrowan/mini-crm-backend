@@ -13,7 +13,6 @@ class ReminderSerializer(serializers.ModelSerializer):
             'title',
             'message',
             'status',
-            'schedule_at',
             'created_at',
         )
             

@@ -5,8 +5,7 @@ from .models import Reminder
 
 @shared_task
 def process_pending_reminders():
-    now = datetime.now()
-    pending_reminders = Reminder.objects.filter(status='pending', schedule_at__lte=now)
+    pending_reminders = Reminder.objects.filter(status='pending')
 
     for reminder in pending_reminders:
         reminder.status = 'processed'

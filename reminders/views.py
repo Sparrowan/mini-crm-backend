@@ -32,6 +32,13 @@ class ReminderListView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ReminderSerializer
     queryset = Reminder.objects.all()
+    def get_queryset(self):
+            lead_id = self.request.query_params.get('lead_id', None)
+
+            if lead_id:
+                return Reminder.objects.filter(lead_id=lead_id)
+            
+            return Reminder.objects.all()
 
 
 class ReminderRetrieveView(RetrieveAPIView):

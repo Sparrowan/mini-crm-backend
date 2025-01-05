@@ -31,7 +31,14 @@ class NoteCreateView(CreateAPIView):
 class NoteListView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = NoteSerializer
-    queryset = Note.objects.all()
+    
+    def get_queryset(self):
+        lead_id = self.request.query_params.get('lead_id', None)
+
+        if lead_id:
+            return Note.objects.filter(lead_id=lead_id)
+        
+        return Note.objects.all()
 
 
 class NoteRetrieveView(RetrieveAPIView):
