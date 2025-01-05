@@ -19,8 +19,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('leads/', include('leads.urls', namespace='leads')),
-    path('contacts/', include('contacts.urls', namespace='contacts')),
-    path('notes/', include('notes.urls', namespace='notes')),
-    path('reminders/', include('reminders.urls', namespace='reminders')),
+    path('api/leads/', include('leads.urls', namespace='leads')),
+    path('api/contacts/', include('contacts.urls', namespace='contacts')),
+    path('api/notes/', include('notes.urls', namespace='notes')),
+    path('api/reminders/', include('reminders.urls', namespace='reminders')),
 ]
