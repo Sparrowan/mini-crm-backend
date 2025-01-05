@@ -22,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if os.getenv('ENVIRONMENT') == 'development':
+# if os.environ.get('ENVIRONMENT') == 'development':
 #     DEBUG = True
 # else:
-#     print(os.getenv('ENVIRONMENT'))
+#     print(os.environ.get('ENVIRONMENT'))
 #     DEBUG =False
 DEBUG = True
 
@@ -143,13 +143,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # set the celery broker url
-CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL", default="")
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
 
 # set the celery result backend
-CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND", default="")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
 
 # set the celery timezone
-CELERY_TIMEZONE = os.getenv("CELERY_TIMEZONEs", default="")
+CELERY_TIMEZONE = os.environ.get("CELERY_TIMEZONEs")
 
 from celery.schedules import crontab
 
