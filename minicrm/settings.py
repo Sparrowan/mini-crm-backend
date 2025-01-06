@@ -12,25 +12,29 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
-load_dotenv()
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+env = environ.Env(
+    # Set default values and casting
+    DEBUG=(bool, False)
+)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if os.environ.get('ENVIRONMENT') == 'development':
-#     DEBUG = True
-# else:
-#     print(os.environ.get('ENVIRONMENT'))
-#     DEBUG =False
-DEBUG = True
+if env('ENVIRONMENT') == 'development':
+    DEBUG = True
+else:
+    print(env('ENVIRONMENT'))
+    DEBUG =False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','mini-crm-backend-production.up.railway.app']
 
@@ -143,13 +147,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # set the celery broker url
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 
 # set the celery result backend
-CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
+CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND")
 
 # set the celery timezone
-CELERY_TIMEZONE = os.environ.get("CELERY_TIMEZONEs")
+CELERY_TIMEZONE = env("CELERY_TIMEZONE")
 
 from celery.schedules import crontab
 
