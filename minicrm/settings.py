@@ -30,7 +30,6 @@ ENVIRONMENT = env('ENVIRONMENT',default='production')
 if  ENVIRONMENT== 'development':
     DEBUG = True
 else:
-    print(env('ENVIRONMENT'))
     DEBUG =False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','mini-crm-backend-production.up.railway.app']
