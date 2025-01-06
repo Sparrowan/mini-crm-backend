@@ -161,8 +161,11 @@ CELERY_BEAT_SCHEDULE = {
     },
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS=True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # For local development
+    "https://mini-crm-frontend-5bp5.vercel.app",  # Vercel deployment
+]
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
