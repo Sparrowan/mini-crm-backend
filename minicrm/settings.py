@@ -32,7 +32,7 @@ if  ENVIRONMENT== 'development':
 else:
     DEBUG =False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','mini-crm-backend-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','mini-crm-backend-production.up.railway.app',"https://mini-crm-frontend-5bp5.vercel.app"]
 
 
 
