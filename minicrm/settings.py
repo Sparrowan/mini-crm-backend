@@ -143,13 +143,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # set the celery broker url
-CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+CELERY_BROKER_URL = env("CELERY_BROKER_URL", default='redis://localhost:6379/01')
 
 # set the celery result backend
-CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND")
+CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND", default='redis://localhost:6379/01')
 
 # set the celery timezone
-CELERY_TIMEZONE = env("CELERY_TIMEZONE")
+CELERY_TIMEZONE = env("CELERY_TIMEZONE", default='UTC')
 
 from celery.schedules import crontab
 
