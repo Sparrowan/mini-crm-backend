@@ -163,6 +163,7 @@ CELERY_BEAT_SCHEDULE = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://mini-crm-frontend-5bp5.vercel.app"
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
